@@ -1,0 +1,101 @@
+<%- include("partials/header", {page: "transfer-money"}); %>
+
+<div class="h-bg">
+  <h1>Transfer Money</h1>
+</div>
+
+<div class="container mt-5">
+
+  <div class="text-center">
+    <img
+      src="/img/transactions.jpg"
+      alt=""
+      width="600px"
+      height="400px"
+      id="transfer"
+    />
+  </div>
+
+  <!-- For success or failure of a transaction. -->
+  <% if (success != "") { %> 
+    <% if (success === "true") { %>
+      <div class="alert alert-success" role="alert">Transaction Successful!</div>
+    <% } %> 
+    <% if (success === "false") { %>
+      <div class="alert alert-danger" role="alert">Transaction Failed!</div>
+  <% } %> <% } %> 
+  
+  <!-- If the transfer request is from a particular sender from customers page.  -->
+  <% if (Object.keys(sender).length) { %>
+  <div class="container">
+    <h4 class="text-center">Sender Details:</h4>
+    <div class="table-responsive">
+      <table class="table">
+        <tbody>
+          <tr class="text-center table-info">
+            <td>Acc Number: <%= sender.accountNo %></td>
+            <td>Name: <%= sender.name %></td>
+            <td>Balance: <%= sender.balance %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <% } %>
+
+  <form action="/transfer" method="post">
+
+    <!-- If no sender is specified in the request. -->
+    <% if (!(Object.keys(sender).length)) { %>
+    <div class="form-floating">
+      <select class="form-select" id="floatingSelect" name="sender">
+        <option selected>...</option>
+        <% customers.forEach(customer => { %>
+        <option value="<%= customer._id %>">
+          <%= customer.name %>(Balance: <%= customer.balance %>)
+        </option>
+        <% }) %>
+      </select>
+      <label for="floatingSelect">Sender's Name</label>
+    </div>
+    <% } else { %>
+      <select name="sender" style="display: none;">
+        <option value="<%= sender._id %>"></option>
+      </select>
+    <% } %>
+
+    <!-- Reciever options -->
+    <div class="form-floating mt-5">
+      <select class="form-select" id="floatingSelect" name="reciever">
+        <option selected>...</option>
+        <% customers.forEach(customer => { %>
+        <option value="<%= customer._id %>">
+          <%= customer.name %>(Balance: <%= customer.balance %>)
+        </option>
+        <% }) %>
+      </select>
+      <label for="floatingSelect">Reciever's Name</label>
+    </div>
+
+    <div class="form-floating mt-5">
+      <input
+        type="number"
+        step="100"
+        class="form-control"
+        id="floatingInput"
+        name="amt"
+      />
+      <label for="floatingInput">Amount(Multiple of 100)</label>
+    </div>
+
+    <div class="mt-5 text-center">
+      <button class="btn btn-success" type="submit">Transfer</button>
+      <% if (hist) { %>
+      <a href="/transactions" class="btn btn-outline-success">View History</a>
+      <% } %>
+    </div>
+
+  </form>
+</div>
+
+<%- include("partials/footer"); %>

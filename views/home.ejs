@@ -1,0 +1,76 @@
+<%- include("partials/header", {page: "home"}); %>
+
+<div class="h-bg" style="height: 5px; padding: 0"></div>
+
+<!-- Header -->
+<section id="header">
+  <div class="header-text">
+    <h1>Welcome</h1>
+    <h4>Transfer money now at the comfort of your home.</h4>
+    <p>
+      No more standing in long queues. We bring to you our online payment
+      platform for transfering money quickly at the comfort of your home.
+    </p>
+    <a href="/transfer" class="btn btn-success me-1">Transfer</a>
+    <a href="/add-customer" class="btn btn-outline-success">Register</a>
+  </div>
+  <div class="header-img">
+    <img src="img/bg.jpg" alt="" width="800px" height="600px" />
+  </div>
+</section>
+
+<!-- Cards -->
+<section id="cards">
+  <div class="container">
+    <div class="row">
+
+      <!-- Card 1 -->
+      <div class="col-md-4 py-3 py-sm-3">
+        <div class="card shadow mt-5">
+          <img src="img/transfer.jpg" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">Transfer-Money</h5>
+            <p class="card-text">
+              Some quick example text to build on the card title and make up the
+              bulk of the card's content.
+            </p>
+            <a href="/transfer" class="btn btn-outline-success">Transfer</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="col-md-4 py-3 py-sm-3">
+        <div class="card shadow mt-5">
+          <img src="img/transactions.jpg" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">All Transactions</h5>
+            <p class="card-text">
+              Some quick example text to build on the card title and make up the
+              bulk of the card's content.
+            </p>
+            <a href="/transactions" class="btn btn-outline-success">View</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="col-md-4 py-3 py-sm-3">
+        <div class="card shadow mt-5">
+          <img src="img/customers.jpg" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">All Customers</h5>
+            <p class="card-text">
+              Some quick example text to build on the card title and make up the
+              bulk of the card's content.
+            </p>
+            <a href="/customers" class="btn btn-outline-success">View</a>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<%- include("partials/footer"); %>

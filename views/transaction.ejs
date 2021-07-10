@@ -1,0 +1,46 @@
+<%- include("partials/header", {page: "transactions"}); %>
+
+<div class="h-bg">
+  <h1>All Transactions</h1>
+</div>
+
+<div class="container mt-5">
+  <div class="row row-t">
+    <div class="col">
+      <div class="table-responsive mt-5">
+        <table class="table table-hover">
+          <thead class="table-success">
+            <tr class="text-center">
+              <th scope="col">Sender</th>
+              <th scope="col">Reciever</th>
+              <th scope="col">Amount</th>
+              <th scope="col">Time(UTC)</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <!-- Displaying the recent transaction on the top. -->
+            <% trans.slice().reverse().forEach(trn => { %>
+            <tr class="text-center">
+              <td scope="col"><%= trn.sender %></td>
+              <td scope="col"><%= trn.reciever %></td>
+              <td scope="col">Rs. <%= trn.amount %></td>
+              <td scope="col"><%= trn.time %></td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="col">
+      <img
+        src="/img/transfer.jpg"
+        alt=""
+        style="width: 100%; height: 100%; object-fit: contain"
+      />
+    </div>
+  </div>
+</div>
+
+<%- include("partials/footer"); %>

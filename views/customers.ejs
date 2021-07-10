@@ -1,0 +1,88 @@
+<%- include("partials/header", {page: "customers"}); %>
+
+<div class="h-bg">
+  <h1>Our Customers</h1>
+</div>
+<div class="container mt-5">
+  <div class="table-responsive">
+    <table class="table table-hover">
+
+      <thead class="table-success">
+        <tr class="text-center">
+          <th scope="col">Account Number</th>
+          <th scope="col">Name</th>
+          <th scope="col">Balance</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <% customers.forEach((customer) => { %>
+
+        <tr class="text-center">
+          <th><%= customer.accountNo %></th>
+          <td><%= customer.name %></td>
+          <td><%= customer.balance %></td>
+          <td>
+            <button
+              type="button"
+              class="btn btn-outline-success"
+              data-bs-target="#mymodal-<%= customer._id %> "
+              data-bs-toggle="modal"
+            >
+              View
+            </button>
+          </td>
+          <td>
+            <a
+              href="/transfer/<%= customer._id %>"
+              class="btn btn-outline-success"
+              >Transfer</a
+            >
+          </td>
+        </tr>
+
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="mymodal-<%= customer._id %>"
+          tabindex="-1"
+          aria-labelledby="myModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header justify-content-center">
+                <h5 class="modal-title" id="myModalLabel">Customer Info</h5>
+              </div>
+              <div class="modal-body" style="margin-left: 25%">
+                <p><b>Account Number:</b> <%= customer.accountNo %></p>
+                <p><b>Name:</b> <%= customer.name %></p>
+                <p><b>Gender:</b> <%= customer.gender %></p>
+                <p><b>Email Id:</b> <%= customer.email %></p>
+                <p><b>Balance:</b> <%= customer.balance %></p>
+              </div>
+              <div class="modal-footer justify-content-center">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Back
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <% }) %>
+
+      </tbody>
+      
+    </table>
+  </div>
+</div>
+
+<%- include("partials/footer"); %>

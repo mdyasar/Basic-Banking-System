@@ -1,0 +1,173 @@
+.navbar {
+  position: absolute;
+  background: transparent !important;
+  width: 100%;
+  z-index: 10;
+}
+
+.nav-link {
+  color: black !important;
+  font-size: 18px !important;
+}
+
+.nav-link:hover {
+  color: #198754 !important;
+}
+
+#new-customer {
+  border: 2px solid black;
+  border-radius: 20px;
+}
+
+#new-customer:hover, #new-customer.active {
+  border: 2px solid #198754;
+  border-radius: 20px;
+  background-color: #198754;
+  color: white !important;
+}
+
+#footer {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #bdfcaf;
+}
+
+.active {
+  color: #198754 !important;
+  font-weight: 600;
+}
+
+#header {
+  min-height: 100vh;
+  position: relative;
+}
+
+.header-img {
+  position: absolute;
+  top: 60px;
+  right: 15%;
+  width: 40%;
+}
+
+.header-text {
+  position: absolute;
+  top: 200px;
+  left: 5%;
+  width: 30%;
+}
+
+.footer-top {
+  margin-top: 10px;
+}
+
+.footer-top a {
+  margin-right: 20px;
+  font-size: 1.5rem;
+  color: dimgray;
+}
+
+.footer-top a:hover {
+  color: #198754;
+}
+
+.footer-bottom {
+  margin-bottom: 10px;
+}
+
+.scroll {
+  background-color: #bdfcaf !important;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px;
+}
+
+.h-bg {
+  padding: 60px;
+  text-align: center;
+  color: white;
+  font-size: 30px;
+  background: #89af92;
+  background: -webkit-radial-gradient(center, #89af92, #adff9a);
+  background: -moz-radial-gradient(center, #89af92, #adff9a);
+  background: radial-gradient(ellipse at center, #89af92, #adff9a);
+}
+
+.hh{
+  height: 75px;
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 1024px){
+
+  .navbar{
+    background: white !important;
+  }
+
+  .scroll {
+    background-color: #bdfcaf !important;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px;
+  }
+
+  .hh{
+    height: 65px;
+  }
+
+  #new-customer{
+    display: inline-block;
+  }
+
+  #header{
+    min-height: 70vh;
+  }
+
+  .header-img img {
+    width: 100%;
+    height: 300px;
+  }
+
+  .header-img{
+    top: 100px;
+    width: 50%;
+    left: 50%;
+  }
+
+  .header-text{
+    top: 100px;
+    width: 40%;
+    left: 5%;
+    right: 5%;
+  }
+
+  .row-t{
+    flex-direction: column-reverse;
+  }
+
+}
+
+@media screen and (max-width: 600px) {
+  
+  #header{
+    min-height: 100vh;
+  }
+
+  .header-img{
+    top: 30px;
+    width: 90%;
+    right: 5%;
+    left: 5%;
+  }
+  
+  .header-text{
+    top: 350px;
+    width: 90%;
+    left: 5%;
+    right: 5%;
+  }
+  
+  #transfer{
+    width: 90%;
+  }
+  
+}
